@@ -1,4 +1,4 @@
-const HTTPS_STATUS = Object.freeze({
+const HTTP_STATUS = Object.freeze({
   OK: 200,
   CREATED: 201,
   BAD_REQUEST:400,
@@ -9,5 +9,5 @@ const HTTPS_STATUS = Object.freeze({
 })
 
 module.exports = {
-    HTTPS_STATUS,
+    HTTP_STATUS,
 }

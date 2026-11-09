@@ -18,9 +18,9 @@ const findById = async(id)=>{
     }
 }
 
-const createUser = async({first_name,last_name,email,passwordHash})=>{
+const createUser = async({first_name,last_name,email,passwordHash,role})=>{
     try{
-        const {rows} = await pool.query("INSERT INTO users(first_name,last_name,email,password) VALUES($1,$2,$3,$4) RETURNING id, first_name,last_name,email,role,created_at",[first_name,last_name,email,passwordHash])
+        const {rows} = await pool.query("INSERT INTO users(first_name,last_name,email,password_hash,role) VALUES($1,$2,$3,$4,$5) RETURNING id, first_name,last_name,email,role,created_at",[first_name,last_name,email,passwordHash,role])
         return rows[0]
     }catch(error){
         console.error("Error creating user:", error)

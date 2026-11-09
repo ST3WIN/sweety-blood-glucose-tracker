@@ -49,7 +49,7 @@ const login = async(req,res)=>{
             return res.status(HTTP_STATUS.BAD_REQUEST).json({message:AUTH_MESSAGES.PROVIDE_CREDENTIALS})
         }
         const user = await User.findByEmail(email.trim().toLowerCase())
-        if(!user || !await bycrypt.compare(password,user.passwordHash)){
+        if(!user || !await bycrypt.compare(password,user.password_hash)){
             return res.status(HTTP_STATUS.UNAUTHORIZED).json({message:AUTH_MESSAGES.INVALID_CREDENTIALS})
         }
         res.cookie("token",signToken(user.id),cookieOptions)
@@ -68,7 +68,7 @@ const login = async(req,res)=>{
 
 const getMe = async(req,res)=>{
     try{
-        const user = await User.findById(req.user.id)
+        const user = await User.findById(req.userId)
         if(!user){
             return res.status(HTTP_STATUS.UNAUTHORIZED).json({message:AUTH_MESSAGES.NOT_AUTHORIZED})
         }
