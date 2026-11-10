@@ -1,0 +1,10 @@
+{
+  "name": "frontend-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix sweety run dev",
+    "build": "npm --prefix sweety run build",
+    "preview": "npm --prefix sweety run preview"
+  }
+}

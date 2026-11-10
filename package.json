@@ -1,0 +1,14 @@
+{
+  "name": "sweety-blood-glucose-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sweety - Blood Glucose Tracker",
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "start:backend": "npm --prefix backend start",
+    "dev:frontend": "npm --prefix frontend/sweety run dev",
+    "build:frontend": "npm --prefix frontend/sweety run build",
+    "seed": "npm --prefix backend run seed",
+    "test": "npm --prefix backend test"
+  }
+}
