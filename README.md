@@ -229,3 +229,6 @@ This verifies:
 - **RESTful API Design:** Build structured REST APIs with consistent HTTP methods, status codes, validation, and error handling.
 - **SOLID Principles:** Follow SOLID principles to improve modularity, maintainability, and code reusability.
 - **Scalable Backend Structure:** Keep business logic separate from controllers, database operations, and external services to support future enhancements.
+**Docker**: Containerize the frontend and backend services using Docker to ensure consistent development and deployment environments.
+**Redis**: Introduce Redis for caching frequently accessed data, managing temporary OTP data, and improving application performance.
+**CI/CD Pipeline**: Implement a CI/CD workflow using GitHub Actions to automate code checks, testing, build verification, and deployment whenever changes are pushed or merged into the repository.
