@@ -399,7 +399,7 @@
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   background: var(--muted);
-  color: var(--foreground);
+  color: red;
   font-size: 0.85rem;
   line-height: 1.5;
 }
