@@ -4,14 +4,19 @@ const User = require('../models/userModel')
 const {HTTP_STATUS} = require('../constants/httpStatus')
 const {AUTH_MESSAGES, COMMON_MESSAGES} = require('../constants/messages')
 
-const cookieOptions = {
+const baseCookie = {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax',
+    path: '/',
+}
+
+const cookieOptions = {
+    ...baseCookie,
     maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
 }
 
-const signToken = (userId) => jwt.sign({id:userId},process.env.JWT_SECRET,{expiresIn:process.env.JWT_EXPIRES_IN||'7d'})
+const signToken = (userId) => jwt.sign({id:userId},process.env.JWT_SECRET,{expiresIn:process.env.JWT_EXPIRES_IN||process.env.JWT_EXPIRE||'7d'})
 
 const registerUser = async(req,res)=>{
     try{
@@ -66,6 +71,11 @@ const login = async(req,res)=>{
     }
 }
 
+const logout = (req, res) => {
+    res.clearCookie('token', baseCookie)
+    res.status(HTTP_STATUS.OK).json({ message: AUTH_MESSAGES.LOGOUT_SUCCESS })
+}
+
 const getMe = async(req,res)=>{
     try{
         const user = await User.findById(req.userId)
@@ -82,5 +92,6 @@ const getMe = async(req,res)=>{
 module.exports = {
     registerUser,
     login,
+    logout,
     getMe
 }

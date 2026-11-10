@@ -4,6 +4,7 @@ const AUTH_MESSAGES = Object.freeze({
     REGISTRATION_SUCCESS: "User registered successfully",
     INVALID_CREDENTIALS: "Invalid email or password",
     LOGIN_SUCCESS: "Login successful",
+    LOGOUT_SUCCESS: "Logged out",
     NOT_AUTHORIZED: "You are not authorized to access this resource",
 })
 

@@ -18,7 +18,6 @@ pool.query('SELECT now()')
     .then((res) => console.log("PostgreSQL connected at", res.rows[0].now))
     .catch((err) => {
         console.error("PostgreSQL connection failed:", err.message)
-        process.exit(1)
     })
 
 module.exports =  pool ;
