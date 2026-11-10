@@ -208,9 +208,24 @@ This verifies:
 3. **Monthly Report Definition**: The "Monthly" report strictly covers "The whole previous month" relative to the selected anchor date (e.g. if the user selects 15 October 2026, the report evaluates 1 September 2026 to 30 September 2026).
 4. **Roles**: The user schema includes a `role` check constraint (`patient` vs `doctor`), defaulting to `patient`.
 
-### What I Would Improve With More Time
-1. **Interactive Glucose Trend Charts**: Add visual line and area charts (using Recharts) to plot 24-hour glucose curves and multi-week glycemic variability.
-2. **Custom Target Ranges**: Allow patients or clinicians to customize target blood glucose thresholds (e.g., fasting 70–130 mg/dl, post-meal < 180 mg/dl) with color-coded badges (Low, In Range, High).
-3. **Doctor / Clinician Portal**: Enable doctors to view assigned patient logs, add clinical annotations, and view glycemic trends.
-4. **Data Exporting**: Export reports directly to PDF or CSV for sharing during doctor visits.
-5. **Slot Reminder Push Notifications**: Optional reminders when an expected slot (such as 2 hours after lunch) has not yet been logged.
+
+## What I Would Improve With More Time
+
+1. **Three-Module Architecture (Patient, Doctor & Admin):** Expand the application into three dedicated modules. Patients can manage glucose readings and view reports, doctors can monitor assigned patients and provide consultations, and administrators can manage users, doctors, and overall platform activities.
+
+2. **Email OTP Authentication:** Implement email OTP verification using Nodemailer for secure password reset functionality, including OTP generation, expiry, and verification.
+
+3. **Interactive Glucose Analytics:** Integrate Chart.js or Recharts to provide interactive line and area charts, helping patients and doctors visualize glucose trends, daily variations, and historical readings.
+
+4. **Automated Notifications & Reminders:** Implement scheduled background jobs using Cron Jobs to send automated reminders when patients miss their scheduled glucose readings.
+
+5. **Real-Time Doctor–Patient Communication:** Integrate Socket.IO to enable real-time messaging between patients and their assigned doctors, allowing them to discuss glucose readings and consultations.
+
+6. **Report Exporting:** Allow patients and doctors to generate and download detailed glucose reports in PDF and Excel formats for medical consultations and record-keeping.
+
+## Architecture & Engineering Practices
+
+- **Clean Architecture:** Organize the application into well-defined layers with clear separation of concerns, making it easier to maintain, test, and extend.
+- **RESTful API Design:** Build structured REST APIs with consistent HTTP methods, status codes, validation, and error handling.
+- **SOLID Principles:** Follow SOLID principles to improve modularity, maintainability, and code reusability.
+- **Scalable Backend Structure:** Keep business logic separate from controllers, database operations, and external services to support future enhancements.
