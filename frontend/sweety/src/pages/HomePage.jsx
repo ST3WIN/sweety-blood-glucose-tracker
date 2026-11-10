@@ -830,7 +830,7 @@ export default function HomePage() {
 
                             <div className="rounded-2xl border border-ink/10 bg-white p-5 shadow-2xs">
                               <span className="text-xs font-medium text-ink/50 uppercase tracking-wider">
-                                Average (1 dec)
+                                Average 
                               </span>
                               <div className="mt-2 flex items-baseline gap-1">
                                 <span className="font-display text-3xl font-semibold text-teal-800">
