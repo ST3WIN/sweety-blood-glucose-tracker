@@ -7,6 +7,7 @@ const pool = require('./config/db');
 const morgan = require("morgan");
 const cookieParser = require('cookie-parser')
 const authroutes = require('./routes/authRoutes')
+const readingRoutes = require('./routes/readingRoutes')
 
 app.use(cors({
     origin: process.env.CLIENT_URL || 'http://localhost:5173',
@@ -24,5 +25,6 @@ if(process.env.NODE_ENV !== 'production') {
 
 app.get("/api/health",(req,res)=>{res.json({success:true,message:"API is running"})})
 app.use("/api/auth",authroutes)
+app.use("/api/readings",readingRoutes)
     
 app.listen(PORT, () => console.log(`server running on port ${PORT}`))
